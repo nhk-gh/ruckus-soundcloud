@@ -1,0 +1,24 @@
+<div class="jumbotron">
+  <div class="search-block">
+    <input type="text" placeholder="Search for track ..." ng-model="searchTerm" autofocus
+      ng-change="clearTrackList()" ng-keypress="($event.keyCode == 13) ? getFirstPage() : return">
+    <button ng-disabled="searchTerm.trim() == ''" class="btn btn-sm btn-info" ng-click="getFirstPage()">Go</button>
+  </div>
+
+  <div class="tracks-list"  ng-show="tracks && tracks.length > 0">
+    <span class="results-title">Search results </span><span class="subtitle">(click on track to play):</span>
+    <ul>
+      <li ng-repeat="track in tracks">
+        <span class="overflow track-item" ng-click=playTrack(track); title="Click to play {{track.title}}">{{track.title}}</span>
+      </li>
+    </ul>
+  </div>
+
+  <footer ng-show="tracks && tracks.length > 0">
+    <button ng-disabled="pageNum <= 0" class="btn btn-sm btn-info pull-left" ng-click="getPrevTracks()">Prev</button>
+    <button ng-disabled="!hasMore" class="btn btn-sm btn-info pull-right" ng-click="getNextTracks()">Next</button>
+  </footer>
+</div>
+
+
+<div id="player"></div>
