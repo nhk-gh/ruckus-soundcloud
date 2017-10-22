@@ -2,8 +2,8 @@
   <div class="search-block">
     <div class="input-element">
       <input type="text" placeholder="Search for track ..." ng-model="searchTerm" autofocus
-             ng-change="clearTrackList()" ng-keypress="($event.keyCode == 13) ? getFirstPage() : return">
-      <span class="clear-search" ng-hide="searchTerm.length == 0" ng-click="searchTerm = ''; clearTrackList()"></span>
+             ng-change="tracks.length > 0 && clearTrackList()" ng-keypress="($event.keyCode == 13) && getFirstPage()">
+      <clear-search search-term="searchTerm" clear="clearTrackList()"></clear-search>
     </div>
     <button ng-disabled="searchTerm.trim() == ''" class="btn btn-sm btn-info" ng-click="getFirstPage()">Go</button>
   </div>

@@ -31,12 +31,6 @@ angular.module('ruckusApp')
       );
     };
 
-    $scope.keyPressed = function(evt) {
-      if (evt.keyCode === 13) {
-        $scope.getFirstPage();
-      }
-    };
-
     $scope.pageNum = 0;
     $scope.hasMore = false;
 
