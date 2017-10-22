@@ -26,7 +26,9 @@ angular.module('ruckusApp')
       searchFor = search;
       SC.get('/tracks', { limit: pageSize, q: search, linked_partitioning: 1 }).then(
         function(result) {
-          next_page = result.next_href.replace('https://api.soundcloud.com', '');
+          if (result.next_href) {
+            next_page = result.next_href.replace('https://api.soundcloud.com', '');
+          }
           deferred.resolve(result);
       }, function (err) {
         console.log(err);
@@ -55,8 +57,5 @@ angular.module('ruckusApp')
         element: document.getElementById('player'),
         auto_play: true
       });
-      /*SC.stream('/tracks/' + track.id).then(function(player){
-        player.play();
-      });*/
-    }
+    };
   }]);

@@ -7,28 +7,68 @@ body {
   padding: 0;
 }
 
-.header,
-.search-block,
-.footer {
-  padding-left: 15px;
-  padding-right: 15px;
+.search-block {
+  padding: 3px;
+
+  .input-element {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    width: 200px;
+    border: 1px solid #aaaaaa;
+    border-radius: 2px;
+
+    input {
+      height: 28px;
+      border: none;
+      outline: none;
+    }
+
+    .clear-search {
+      color: rgba(170, 170, 170, 0.5);
+      font-size: larger;
+      font-weight: bold;
+      margin-right: 2px;
+
+      &:after {
+        content: '\00D7';
+      }
+
+      &:hover {
+        color: #105cb6;
+      }
+    }
+  }
 }
 
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
   background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
 
   .ruckus-logo {
     width: 135px;
     height: 40px;
     margin-left: 5%;
   }
+
+  .enjoy {
+    position: relative;
+    left: 60%;
+    top: 5px;
+    color: white;
+    font-family: Helvetica;
+    font-size: 26px;
+  }
 }
 
 .tracks-list {
   text-align: initial;
   margin-top: 10px;
+  border-bottom: 1px solid #e5e5e5;
+  min-height: 165px;
 
   .results-title {
     font-weight: bold;
@@ -38,25 +78,42 @@ body {
   }
   ul {
     margin: 8px 0;
+    list-style-type: decimal;
+
+    .track-item {
+      cursor: pointer;
+      top: 5px;
+      position: relative;
+
+      &:hover {
+        background-color: #5bc0de;
+      }
+    }
   }
 }
 
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-  position: absolute;
-  bottom: 5px;
-}
-
-
 .jumbotron {
   text-align: center;
-  border-bottom: 1px solid #e5e5e5;
+  background-color: white;
   min-height: 300px;
   width: 580px;
   position: relative;
   display: inline-block;
+  -webkit-box-shadow: -2px 4px 28px 7px rgba(0,0,0,0.75);
+  -moz-box-shadow: -2px 4px 28px 7px rgba(0,0,0,0.75);
+  box-shadow: -2px 4px 28px 7px #dfdfdf;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.no-results {
+  font-size: 20px;
+  margin-top: 70px;
+
+  img {
+    height: 50px;
+    width: 50px;
+  }
 }
 
 .overflow {
@@ -65,13 +122,6 @@ body {
   display:inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
-}
-
-.track-item {
-  cursor: pointer;
-  &:hover {
-    background-color: #5bc0de;
-  }
 }
 
 #player {
@@ -91,9 +141,7 @@ body {
   }
 
   /* Remove the padding we set earlier */
-  .header,
-  .search-block,
-  .footer {
+  .header {
     padding-left: 0;
     padding-right: 0;
   }

@@ -12,12 +12,18 @@ angular.module('ruckusApp')
     CommunicationService.initSC();
 
     $scope.searchTerm = '';
+    $scope.tracksNotFound = false;
 
     $scope.getFirstPage = function() {
+      $scope.tracksNotFound = false;
+
       CommunicationService.getTracks($scope.searchTerm).then(
         function(result){
           $scope.tracks = result.collection;
           $scope.hasMore = result.next_href || null;
+          if ($scope.tracks.length === 0) {
+            $scope.tracksNotFound = true;
+          }
         },function (err) {
           console.log(err);
           $scope.tracks = [];
@@ -26,7 +32,7 @@ angular.module('ruckusApp')
     };
 
     $scope.keyPressed = function(evt) {
-      if (evt.keyCode == 13) {
+      if (evt.keyCode === 13) {
         $scope.getFirstPage();
       }
     };

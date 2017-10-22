@@ -1,11 +1,14 @@
 <div class="jumbotron">
   <div class="search-block">
-    <input type="text" placeholder="Search for track ..." ng-model="searchTerm" autofocus
-      ng-change="clearTrackList()" ng-keypress="($event.keyCode == 13) ? getFirstPage() : return">
+    <div class="input-element">
+      <input type="text" placeholder="Search for track ..." ng-model="searchTerm" autofocus
+             ng-change="clearTrackList()" ng-keypress="($event.keyCode == 13) ? getFirstPage() : return">
+      <span class="clear-search" ng-hide="searchTerm.length == 0" ng-click="searchTerm = ''; clearTrackList()"></span>
+    </div>
     <button ng-disabled="searchTerm.trim() == ''" class="btn btn-sm btn-info" ng-click="getFirstPage()">Go</button>
   </div>
 
-  <div class="tracks-list"  ng-show="tracks && tracks.length > 0">
+  <div class="tracks-list" ng-show="tracks && tracks.length > 0">
     <span class="results-title">Search results </span><span class="subtitle">(click on track to play):</span>
     <ul>
       <li ng-repeat="track in tracks">
@@ -13,8 +16,12 @@
       </li>
     </ul>
   </div>
+  <div class="no-results" ng-show="tracksNotFound">
+    <img src="/images/warning-error-icon-png-33.png">
+    <span>No tracks found !</span>
+  </div>
 
-  <footer ng-show="tracks && tracks.length > 0">
+  <footer ng-show="tracks && tracks.length > 0" style="margin-top: 20px">
     <button ng-disabled="pageNum <= 0" class="btn btn-sm btn-info pull-left" ng-click="getPrevTracks()">Prev</button>
     <button ng-disabled="!hasMore" class="btn btn-sm btn-info pull-right" ng-click="getNextTracks()">Next</button>
   </footer>
