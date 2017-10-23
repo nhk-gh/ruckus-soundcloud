@@ -24,7 +24,7 @@ angular.module('ruckusApp')
       var deferred  = $q.defer();
       tracks = [];
       searchFor = search;
-      SC.get('/tracks', { limit: pageSize, q: search, linked_partitioning: 1 }).then(
+      SC.get('/tracks', { limit: pageSize, q: search, linked_partitioning: 1, offset: 0}).then(
         function(result) {
           if (result.next_href) {
             next_page = result.next_href.replace('https://api.soundcloud.com', '');

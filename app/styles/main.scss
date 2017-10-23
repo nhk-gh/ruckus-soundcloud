@@ -7,6 +7,29 @@ body {
   padding: 0;
 }
 
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+  background-color: black;
+  padding-left: 15px;
+  padding-right: 15px;
+
+  .ruckus-logo {
+    width: 135px;
+    height: 40px;
+    margin-left: 5%;
+  }
+
+  .enjoy {
+    position: relative;
+    left: 60%;
+    top: 5px;
+    color: white;
+    font-family: Helvetica;
+    font-size: 26px;
+  }
+}
+
 .search-block {
   padding: 3px;
 
@@ -15,6 +38,7 @@ body {
     display: inline-block;
     height: 30px;
     width: 200px;
+    top: 1px;
     border: 1px solid #aaaaaa;
     border-radius: 2px;
 
@@ -38,29 +62,6 @@ body {
         color: #105cb6;
       }
     }
-  }
-}
-
-.header {
-  border-bottom: 1px solid #e5e5e5;
-  margin-bottom: 10px;
-  background-color: black;
-  padding-left: 15px;
-  padding-right: 15px;
-
-  .ruckus-logo {
-    width: 135px;
-    height: 40px;
-    margin-left: 5%;
-  }
-
-  .enjoy {
-    position: relative;
-    left: 60%;
-    top: 5px;
-    color: white;
-    font-family: Helvetica;
-    font-size: 26px;
   }
 }
 
@@ -90,6 +91,11 @@ body {
       }
     }
   }
+}
+
+.page-number {
+  position: relative;
+  margin: 0 auto;
 }
 
 .jumbotron {

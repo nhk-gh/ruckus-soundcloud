@@ -2,7 +2,7 @@
   <div class="search-block">
     <div class="input-element">
       <input type="text" placeholder="Search for track ..." ng-model="searchTerm" autofocus
-             ng-change="tracks.length > 0 && clearTrackList()" ng-keypress="($event.keyCode == 13) && getFirstPage()">
+             ng-change="clearTrackList()" ng-keypress="($event.keyCode == 13) && getFirstPage()">
       <clear-search search-term="searchTerm" clear="clearTrackList()"></clear-search>
     </div>
     <button ng-disabled="searchTerm.trim() == ''" class="btn btn-sm btn-info" ng-click="getFirstPage()">Go</button>
@@ -23,6 +23,7 @@
 
   <footer ng-show="tracks && tracks.length > 0" style="margin-top: 20px">
     <button ng-disabled="pageNum <= 0" class="btn btn-sm btn-info pull-left" ng-click="getPrevTracks()">Prev</button>
+    <span class="page-number">Page: {{pageNum + 1}}</span>
     <button ng-disabled="!hasMore" class="btn btn-sm btn-info pull-right" ng-click="getNextTracks()">Next</button>
   </footer>
 </div>

@@ -21,6 +21,7 @@ angular.module('ruckusApp')
         function(result){
           $scope.tracks = result.collection;
           $scope.hasMore = result.next_href || null;
+          $scope.pageNum = 0;
           if ($scope.tracks.length === 0) {
             $scope.tracksNotFound = true;
           }
@@ -44,6 +45,8 @@ angular.module('ruckusApp')
 
     $scope.clearTrackList = function() {
       $scope.tracks = [];
+      $scope.pageNum = 0;
+      $scope.tracksNotFound = false;
     };
 
     $scope.playTrack = function(track) {
